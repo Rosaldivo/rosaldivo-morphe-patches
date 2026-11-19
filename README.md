@@ -9,6 +9,11 @@ Small patches that are meant to be applied together with the official Morphe pat
 - **Playlist track tap action** (YouTube Music): tapping a track inside a playlist or album
   plays only that track, or adds it to the end of the queue, instead of replacing the queue
   with the whole playlist. Pick the behavior with the patch option `Tap action`.
+- **Keep autoplay setting** (YouTube Music): fixes the autoplay switch in Settings > Playback
+  turning itself back on when a new track starts. The patch has no options.
+- **No mix on empty queue** (YouTube Music): with autoplay off, 'Play next' or 'Add to queue' on
+  an empty queue plays only that song, instead of filling the queue with a radio mix.
+  The patch has no options.
 
 ### How to use these patches
 
@@ -19,18 +24,20 @@ Then patch with both the official Morphe patches and these patches selected.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.0](https://github.com/Rosaldivo/rosaldivo-morphe-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
+> **[v1.1.0-dev.3](https://github.com/Rosaldivo/rosaldivo-morphe-patches/releases/tag/v1.1.0-dev.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;3 patches total
 <details open>
-<summary>📦 YouTube Music&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 YouTube Music&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 🧪&nbsp;9.38.51 | 🧪&nbsp;9.37.54 | 🧪&nbsp;9.36.50 | 9.15.51 |
+| 🧪&nbsp;9.46.51 | 🧪&nbsp;9.40.51 | 🧪&nbsp;9.30.53 | 🧪&nbsp;9.20.53 |
 | :---: | :---: | :---: | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
+| [Keep autoplay setting](#keep-autoplay-setting) | Fixes the autoplay setting (Settings > Playback > Autoplay) turning itself back on when a new track starts. |  |
+| [No mix on empty queue](#no-mix-on-empty-queue) | When autoplay is off, 'Play next' and 'Add to queue' on an empty queue play only the chosen song, instead of starting a radio mix. |  |
 | [Playlist track tap action](#playlist-track-tap-action) | Plays only the tapped track of a playlist or album, or adds it to the queue, instead of replacing the queue with the whole playlist. | • Tap action |
 
 </details>
