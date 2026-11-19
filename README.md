@@ -9,8 +9,10 @@ Small patches that are meant to be applied together with the official Morphe pat
 - **Playlist track tap action** (YouTube Music): tapping a track inside a playlist or album
   plays only that track, or adds it to the end of the queue, instead of replacing the queue
   with the whole playlist. Pick the behavior with the patch option `Tap action`.
+<!--
 - **Keep autoplay setting** (YouTube Music): fixes the autoplay switch in Settings > Playback
   turning itself back on when a new track starts. The patch has no options.
+-->
 - **No mix for single songs** (YouTube Music): with autoplay off, choosing a single song (tapping
   it, or 'Play next' on an empty queue) plays only that song, instead of filling the queue with
   a radio mix. Albums and playlists are not touched. The patch has no options.
