@@ -1,3 +1,9 @@
+## [1.1.0-dev.2](https://github.com/Rosaldivo/rosaldivo-morphe-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2026-11-19)
+
+### ✨ New Features
+
+* **YouTube Music:** Support 9.46.51 in `Keep autoplay setting` ([0e62a2d](https://github.com/Rosaldivo/rosaldivo-morphe-patches/commit/0e62a2d0c1b6b7e41decd73f3e31bb1a59a714d4))
+
 ## [1.1.0-dev.1](https://github.com/Rosaldivo/rosaldivo-morphe-patches/compare/v1.0.0...v1.1.0-dev.1) (2026-11-19)
 
 ### ✨ New Features

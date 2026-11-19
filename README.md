@@ -21,15 +21,15 @@ Then patch with both the official Morphe patches and these patches selected.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.0-dev.1](https://github.com/Rosaldivo/rosaldivo-morphe-patches/releases/tag/v1.1.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
+> **[v1.1.0-dev.2](https://github.com/Rosaldivo/rosaldivo-morphe-patches/releases/tag/v1.1.0-dev.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
 <details open>
 <summary>📦 YouTube Music&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 🧪&nbsp;9.40.51 | 🧪&nbsp;9.30.53 | 🧪&nbsp;9.20.53 |
-| :---: | :---: | :---: |
+| 🧪&nbsp;9.46.51 | 🧪&nbsp;9.40.51 | 🧪&nbsp;9.30.53 | 🧪&nbsp;9.20.53 |
+| :---: | :---: | :---: | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
