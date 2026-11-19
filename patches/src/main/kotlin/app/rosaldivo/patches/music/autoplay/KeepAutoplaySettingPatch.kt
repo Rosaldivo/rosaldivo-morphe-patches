@@ -7,6 +7,13 @@
 
 package app.rosaldivo.patches.music.autoplay
 
+// Commented out, so the patch is not part of the bundle. It is no longer needed: the saved autoplay
+// setting is not what brings the mix back (see `NoMixForSingleSongPatch`), and 9.40 and newer set the
+// "user has changed autoplay" flag themselves. It only fixed 9.3x, where turning autoplay off in
+// Settings > Playback was undone when the next track started.
+// The fingerprint it used, `ApplyDefaultAutoplayModeFingerprint`, is kept.
+
+/*
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
@@ -32,3 +39,4 @@ val keepAutoplaySettingPatch = bytecodePatch(
         }
     }
 }
+*/
