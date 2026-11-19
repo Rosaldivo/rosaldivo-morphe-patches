@@ -1,3 +1,9 @@
+## [1.2.0-dev.1](https://github.com/Rosaldivo/rosaldivo-morphe-patches/compare/v1.1.0...v1.2.0-dev.1) (2026-11-19)
+
+### ✨ New Features
+
+* **YouTube Music:** Make `No mix on empty queue` work for any single song ([6188ad5](https://github.com/Rosaldivo/rosaldivo-morphe-patches/commit/6188ad5426c9565e3fdc58dc260f835e8d3b899a))
+
 ## [1.1.0](https://github.com/Rosaldivo/rosaldivo-morphe-patches/compare/v1.0.0...v1.1.0) (2026-11-19)
 
 ### ✨ New Features

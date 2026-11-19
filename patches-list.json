@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.1.0",
+  "version": "1.2.0-dev.1",
   "patches": [
     {
       "name": "Keep autoplay setting",
@@ -54,8 +54,8 @@
       "options": []
     },
     {
-      "name": "No mix on empty queue",
-      "description": "When autoplay is off, 'Play next' and 'Add to queue' on an empty queue play only the chosen song, instead of starting a radio mix.",
+      "name": "No mix for single songs",
+      "description": "When autoplay is off, choosing a single song plays only that song, instead of filling the queue with a radio mix.",
       "default": true,
       "category": null,
       "dependencies": [],
