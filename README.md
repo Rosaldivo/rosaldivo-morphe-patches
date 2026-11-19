@@ -21,18 +21,19 @@ Then patch with both the official Morphe patches and these patches selected.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.0](https://github.com/Rosaldivo/rosaldivo-morphe-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
+> **[v1.1.0-dev.1](https://github.com/Rosaldivo/rosaldivo-morphe-patches/releases/tag/v1.1.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
 <details open>
-<summary>📦 YouTube Music&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 YouTube Music&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 🧪&nbsp;9.38.51 | 🧪&nbsp;9.37.54 | 🧪&nbsp;9.36.50 | 9.15.51 |
-| :---: | :---: | :---: | :---: |
+| 🧪&nbsp;9.40.51 | 🧪&nbsp;9.30.53 | 🧪&nbsp;9.20.53 |
+| :---: | :---: | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
+| [Keep autoplay setting](#keep-autoplay-setting) | Fixes the autoplay setting (Settings > Playback > Autoplay) turning itself back on when a new track starts. |  |
 | [Playlist track tap action](#playlist-track-tap-action) | Plays only the tapped track of a playlist or album, or adds it to the queue, instead of replacing the queue with the whole playlist. | • Tap action |
 
 </details>

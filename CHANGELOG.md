@@ -1,3 +1,9 @@
+## [1.1.0-dev.1](https://github.com/Rosaldivo/rosaldivo-morphe-patches/compare/v1.0.0...v1.1.0-dev.1) (2026-11-19)
+
+### ✨ New Features
+
+* **YouTube Music:** Add `Keep autoplay setting` patch ([69d3ddf](https://github.com/Rosaldivo/rosaldivo-morphe-patches/commit/69d3ddf819b49b38c07c795722a25723b43fcace))
+
 ## 1.0.0 (2026-10-02)
 
 ### ✨ New Features
