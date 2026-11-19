@@ -15,27 +15,25 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.rosaldivo.patches.music.shared.Constants.COMPATIBILITY_YOUTUBE_MUSIC_EMPTY_QUEUE
+import app.rosaldivo.patches.music.shared.Constants.COMPATIBILITY_YOUTUBE_MUSIC_SINGLE_SONG
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-private const val EXTENSION_CLASS = "Lapp/rosaldivo/extension/music/EmptyQueueMixPatch;"
+private const val EXTENSION_CLASS = "Lapp/rosaldivo/extension/music/SingleSongMixPatch;"
 
 @Suppress("unused")
-val noEmptyQueueMixPatch = bytecodePatch(
-    name = "No mix on empty queue",
-    description = "When autoplay is off, 'Play next' and 'Add to queue' on an empty queue play only " +
-            "the chosen song, instead of starting a radio mix.",
+val noMixForSingleSongPatch = bytecodePatch(
+    name = "No mix for single songs",
+    description = "When autoplay is off, choosing a single song plays only that song, instead of " +
+            "filling the queue with a radio mix.",
 ) {
-    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC_EMPTY_QUEUE)
+    compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC_SINGLE_SONG)
 
     extendWith("extensions/music.mpe")
 
@@ -169,31 +167,13 @@ val noEmptyQueueMixPatch = bytecodePatch(
 
         // endregion
 
-        // region The empty queue.
+        // region The queue load.
 
-        // The queue add handler tests the queue target for an empty queue command with 'bits & 8',
-        // but only when the queue is empty.
-        val resolveMethod = QueueAddEndpointResolveFingerprint.method
-        val instructions = resolveMethod.implementation!!.instructions.toList()
-
-        val presenceBitTests = instructions.withIndex().filter { (_, instruction) ->
-            instruction.opcode == Opcode.AND_INT_LIT8 &&
-                    (instruction as NarrowLiteralInstruction).narrowLiteral == 8
-        }
-        if (presenceBitTests.size != 1) {
-            throw PatchException("Expected one test of the empty queue command, found ${presenceBitTests.size}")
-        }
-
-        val bitTestIndex = presenceBitTests.single().index
-        // 'and-int/lit8 vA, vB, 8' sets vA, so the call goes after it.
-        val register = (instructions[bitTestIndex] as TwoRegisterInstruction).registerA
-
-        resolveMethod.addInstructions(
-            bitTestIndex + 1,
-            """
-                invoke-static { v$register }, $EXTENSION_CLASS->onEmptyQueueAdd(I)I
-                move-result v$register
-            """
+        // The first parameter is the server response with the songs. Whether it is the mix of a
+        // single song is for the extension to tell.
+        QueueResponseFingerprint.method.addInstructions(
+            0,
+            "invoke-static { p1 }, $EXTENSION_CLASS->onQueueLoad(Ljava/lang/Object;)V"
         )
 
         // endregion

@@ -13,6 +13,8 @@ import app.morphe.patcher.opcode
 import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 /**
  * Applies the server's default autoplay mode when a new queue loads. The method is:
@@ -103,14 +105,31 @@ internal object QueueLoadMoreFingerprint : Fingerprint(
 )
 
 /**
- * Resolves the queue add endpoint, which 'Play next' and 'Add to queue' send.
- * The only method with the log message about moving a track instead of adding it.
+ * Called with every server response that fills the queue, with the response as the first parameter,
+ * to remember the continuations it brings (next page, previous page, radio). It reads the three
+ * continuation types from the static fields of their class, which the other method of the queue class
+ * with the same parameters does not.
  */
-internal object QueueAddEndpointResolveFingerprint : Fingerprint(
+internal object QueueResponseFingerprint : Fingerprint(
+    classFingerprint = Fingerprint(
+        name = "<clinit>",
+        returnType = "V",
+        parameters = listOf(),
+        filters = listOf(
+            string("com/google/android/apps/youtube/music/player/queue/MusicPlaybackQueue")
+        )
+    ),
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    parameters = listOf("L", "Ljava/util/Map;"),
-    filters = listOf(
-        string("Move performed instead of add while casting.")
-    )
+    parameters = listOf("L", "L"),
+    custom = custom@{ method, _ ->
+        val instructions = method.implementation?.instructions ?: return@custom false
+        val enumFields = instructions
+            .filter { it.opcode == Opcode.SGET_OBJECT }
+            .mapNotNull { ((it as ReferenceInstruction).reference as? FieldReference) }
+            .filter { it.definingClass == it.type }
+            .map { it.name }
+            .toSet()
+        return@custom enumFields.size >= 3
+    }
 )

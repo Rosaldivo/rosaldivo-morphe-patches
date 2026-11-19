@@ -40,11 +40,11 @@ internal object Constants {
     )
 
     /**
-     * Versions for the `No mix on empty queue` patch.
+     * Versions for the `No mix for single songs` patch.
      * Run on a patched 9.46.51 on a phone. 9.40.51 only patches without errors.
      * The queue code of 9.20.53 and older is different.
      */
-    val COMPATIBILITY_YOUTUBE_MUSIC_EMPTY_QUEUE = Compatibility(
+    val COMPATIBILITY_YOUTUBE_MUSIC_SINGLE_SONG = Compatibility(
         name = "YouTube Music",
         packageName = "com.google.android.apps.youtube.music",
         apkFileType = COMPATIBILITY_YOUTUBE_MUSIC.apkFileType,
