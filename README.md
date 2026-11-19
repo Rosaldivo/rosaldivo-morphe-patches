@@ -11,6 +11,9 @@ Small patches that are meant to be applied together with the official Morphe pat
   with the whole playlist. Pick the behavior with the patch option `Tap action`.
 - **Keep autoplay setting** (YouTube Music): fixes the autoplay switch in Settings > Playback
   turning itself back on when a new track starts. The patch has no options.
+- **No mix on empty queue** (YouTube Music): with autoplay off, 'Play next' or 'Add to queue' on
+  an empty queue plays only that song, instead of filling the queue with a radio mix.
+  The patch has no options.
 
 ### How to use these patches
 

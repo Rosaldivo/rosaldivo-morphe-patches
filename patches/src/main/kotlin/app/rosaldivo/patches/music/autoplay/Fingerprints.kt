@@ -42,3 +42,75 @@ internal object ApplyDefaultAutoplayModeFingerprint : Fingerprint(
     ),
     strings = listOf("autoplay_enabled")
 )
+
+/**
+ * Returns a lane of the queue (0 is the songs, 1 is the autoplay songs) as a list-like object
+ * with `size()` and `remove(int)`. Method of the queue manager, whose static initializer holds its
+ * class path.
+ */
+internal object QueueLaneFingerprint : Fingerprint(
+    classFingerprint = Fingerprint(
+        name = "<clinit>",
+        returnType = "V",
+        parameters = listOf(),
+        filters = listOf(
+            string("com/google/android/libraries/youtube/player/features/queue/PlaybackQueueManager")
+        )
+    ),
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "L",
+    parameters = listOf("I"),
+    filters = listOf(
+        opcode(Opcode.CHECK_CAST)
+    )
+)
+
+/**
+ * Requests more songs for the queue (the next page, the previous page or the radio continuation).
+ * Takes the type of the continuation and a callback. The class is the only one with its class path.
+ */
+internal object QueueContinuationRequestFingerprint : Fingerprint(
+    classFingerprint = Fingerprint(
+        name = "<clinit>",
+        returnType = "V",
+        parameters = listOf(),
+        filters = listOf(
+            string("com/google/android/apps/youtube/music/player/queue/MusicPlaybackQueueContinuationRequester")
+        )
+    ),
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "L")
+)
+
+/**
+ * Called whenever the queue changes, with the index of the song playing. Asks for more songs when
+ * the queue is short, or tells the queue it is not loading when it is long enough.
+ * The only method of the queue class that takes a single int.
+ */
+internal object QueueLoadMoreFingerprint : Fingerprint(
+    classFingerprint = Fingerprint(
+        name = "<clinit>",
+        returnType = "V",
+        parameters = listOf(),
+        filters = listOf(
+            string("com/google/android/apps/youtube/music/player/queue/MusicPlaybackQueue")
+        )
+    ),
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("I")
+)
+
+/**
+ * Resolves the queue add endpoint, which 'Play next' and 'Add to queue' send.
+ * The only method with the log message about moving a track instead of adding it.
+ */
+internal object QueueAddEndpointResolveFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "Ljava/util/Map;"),
+    filters = listOf(
+        string("Move performed instead of add while casting.")
+    )
+)
