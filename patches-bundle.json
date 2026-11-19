@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-11-19T10:19:30",
-  "description": "## [1.2.0-dev.1](https://github.com/Rosaldivo/rosaldivo-morphe-patches/compare/v1.1.0...v1.2.0-dev.1) (2026-11-19)\n\n### ✨ New Features\n\n* **YouTube Music:** Make `No mix on empty queue` work for any single song ([6188ad5](https://github.com/Rosaldivo/rosaldivo-morphe-patches/commit/6188ad5426c9565e3fdc58dc260f835e8d3b899a))",
-  "download_url": "https://github.com/Rosaldivo/rosaldivo-morphe-patches/releases/download/v1.2.0-dev.1/patches-1.2.0-dev.1.mpp",
+  "created_at": "2026-11-19T10:30:19",
+  "description": "## [1.2.0](https://github.com/Rosaldivo/rosaldivo-morphe-patches/compare/v1.1.0...v1.2.0) (2026-11-19)\n\n### ✨ New Features\n\n* **YouTube Music:** Make `No mix on empty queue` work for any single song ([6188ad5](https://github.com/Rosaldivo/rosaldivo-morphe-patches/commit/6188ad5426c9565e3fdc58dc260f835e8d3b899a))",
+  "download_url": "https://github.com/Rosaldivo/rosaldivo-morphe-patches/releases/download/v1.2.0/patches-1.2.0.mpp",
   "signature_download_url": "",
-  "version": "1.2.0-dev.1"
+  "version": "1.2.0"
 }
